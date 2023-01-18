@@ -7,6 +7,7 @@ class Driver(models.Model):
     latitude = models.FloatField(null=False)
     morning_shift = models.BooleanField(default=False)
     afternoon_shift = models.BooleanField(default=False)
+    # contact_number = models.CharField(max_length=10)
     is_deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

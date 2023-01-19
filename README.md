@@ -1,7 +1,7 @@
 # Django-Service
 
 
-1. Create user
+1. Create user - Add and display all users
   - Table format encrypt password
   - Token generation
 2. Create services

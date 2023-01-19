@@ -10,7 +10,7 @@
   - Helper function find the acending order of service list by distance
 4. Reservation
   - Booking a service base on service_id
-  - Modify or delete reservation
+  - Delete reservation
 
 
 More:

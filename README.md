@@ -2,11 +2,15 @@
 
 
 1. Create user
+  - Table format encrypt password
+  - Token generation
 2. Create services
+  - Add, update, and delete services (chef,baber,driver...)
 3. Distance list
+  - Helper function find the acending order of service list by distance
 4. Reservation
-
+  - Booking a service base on service_id
+  - Modify or delete reservation
 
 - update service info base on (phone)
-- delete item or remove from database
 - service contact method (email/phone)

@@ -1,6 +1,7 @@
 from django.db import models
 
 class Barber(models.Model):
+    """Barber model specification"""
     #user = models.ForeignKey("user.User", models.DO_NOTHING)
     name = models.CharField(max_length=200)
     longitude = models.FloatField(null=False)

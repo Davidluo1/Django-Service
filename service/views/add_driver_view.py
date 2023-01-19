@@ -28,9 +28,11 @@ class AddDriverView(APIView):
         
     def get(self,request):
         """Get all drivers"""
+        # get all drivers
         driver_qs = Driver.objects.all()
         resp = []
         if driver_qs.exists():
+            # store all info for each driver
             for item in driver_qs:
                 resp.append({"name":item.name, "latitude":item.latitude, "longitude":item.longitude, 
                             "morning_shift":item.morning_shift, "afternoon_shift":item.afternoon_shift, 

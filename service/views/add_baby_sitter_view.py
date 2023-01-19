@@ -16,11 +16,11 @@ class AddBabySitterView(APIView):
         request_data = BabySitterRequest(data=req_data)
         _ = request_data.is_valid(raise_exception=True)
         req_data = request_data.validated_data
-        baby_sitter_qs = BabySitter.objects.filter(name=req_data['name'], 
+        babysitter_qs = BabySitter.objects.filter(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
-        if baby_sitter_qs.exists():
+        if babysitter_qs.exists():
             return Response({"msg":"This baby sitter does not exist or no longer exist."}, status=400)
-        baby_sitter_qs.create(name=req_data['name'], 
+        babysitter_qs.create(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Baby sitter added successful!!!"}, status=200)
         
@@ -28,10 +28,12 @@ class AddBabySitterView(APIView):
         
     def get(self,request):
         """Get all baby sitters"""
-        baby_sitter_qs = BabySitter.objects.all()
+        # get all baby sitter
+        babysitter_qs = BabySitter.objects.all()
         resp = []
-        if baby_sitter_qs.exists():
-            for item in baby_sitter_qs:
+        if babysitter_qs.exists():
+            # store all info for each baby sitter
+            for item in babysitter_qs:
                 resp.append({"name":item.name, "latitude":item.latitude, "longitude":item.longitude, 
                             "morning_shift":item.morning_shift, "afternoon_shift":item.afternoon_shift, 
                             "deleted":item.is_deleted})

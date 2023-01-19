@@ -26,6 +26,8 @@ class UpdateBarber(APIView):
         
     @transaction.atomic
     def delete(self,request,barber_id):
+        """Delete barber"""
+        # find the driver and is not deleted
         barber_qs = Barber.objects.filter(id=barber_id, is_deleted=False)
         if barber_qs.exists():
             barber_qs.delete()

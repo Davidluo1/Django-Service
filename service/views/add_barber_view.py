@@ -28,9 +28,11 @@ class AddBarberView(APIView):
         
     def get(self,request):
         """Get all barbers"""
+        # get all barbers
         barber_qs = Barber.objects.all()
         resp = []
         if barber_qs.exists():
+            # store all info for each barber
             for item in barber_qs:
                 resp.append({"name":item.name, "latitude":item.latitude, "longitude":item.longitude, 
                             "morning_shift":item.morning_shift, "afternoon_shift":item.afternoon_shift, 

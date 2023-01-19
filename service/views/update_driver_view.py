@@ -26,6 +26,8 @@ class UpdateDriver(APIView):
         
     @transaction.atomic
     def delete(self,request,driver_id):
+        """Delete driver"""
+        # find the driver and is not deleted
         driver_qs = Driver.objects.filter(id=driver_id, is_deleted=False)
         if driver_qs.exists():
             driver_qs.delete()

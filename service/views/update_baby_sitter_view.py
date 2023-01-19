@@ -7,7 +7,7 @@ from service.models import BabySitter
 from service.serializer import BabySitterRequest
 
 class UpdateBabySitter(APIView):
-    """Update babysitter"""
+    """Update baby sitter"""
     
     permission_classes = [(IsAuthenticated)]
     @transaction.atomic
@@ -26,6 +26,8 @@ class UpdateBabySitter(APIView):
         
     @transaction.atomic
     def delete(self,request, babysitter_id):
+        """Delete baby sitter"""
+        # find the baby sitter and is not deleted
         babysitter_qs = BabySitter.objects.filter(id=babysitter_id, is_deleted=False)
         if babysitter_qs.exists():
             babysitter_qs.delete()

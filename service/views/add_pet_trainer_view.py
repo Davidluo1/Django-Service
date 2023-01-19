@@ -16,11 +16,11 @@ class AddPetTrainer(APIView):
         request_data = PetTrainerRequest(data=req_data)
         _ = request_data.is_valid(raise_exception=True)
         req_data = request_data.validated_data
-        pet_trainer_qs = PetTrainer.objects.filter(name=req_data['name'], 
+        pettrainer_qs = PetTrainer.objects.filter(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
-        if pet_trainer_qs.exists():
+        if pettrainer_qs.exists():
             return Response({"msg":"This pet trainer sitter does not exist or no longer exist."}, status=400)
-        pet_trainer_qs.create(name=req_data['name'], 
+        pettrainer_qs.create(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Pet trainer added successful!!!"}, status=200)
 
@@ -28,10 +28,12 @@ class AddPetTrainer(APIView):
     
     def get(self,request):
         """Get all pet trainers"""
-        pet_trainer_qs = PetTrainer.objects.all()
+        # get all pet trainer
+        pettrainer_qs = PetTrainer.objects.all()
         resp = []
-        if pet_trainer_qs.exists():
-            for item in pet_trainer_qs:
+        if pettrainer_qs.exists():
+            # store all info for every pet trainer
+            for item in pettrainer_qs:
                 resp.append({"name":item.name, "latitude":item.latitude, "longitude":item.longitude, 
                             "morning_shift":item.morning_shift, "afternoon_shift":item.afternoon_shift, 
                             "deleted":item.is_deleted})

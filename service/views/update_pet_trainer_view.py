@@ -7,7 +7,7 @@ from service.models import PetTrainer
 from service.serializer import PetTrainerRequest
 
 class UpdatePetTrainer(APIView):
-    """Update pettrainer"""
+    """Update pet trainer"""
     
     permission_classes = [(IsAuthenticated)]
     @transaction.atomic
@@ -26,10 +26,12 @@ class UpdatePetTrainer(APIView):
     
     
     @transaction.atomic
-    def delete(self,request,pet_trainer_id):
-        pet_trainer_qs = PetTrainer.objects.filter(id=pet_trainer_id, is_deleted=False)
-        if pet_trainer_qs.exists():
-            pet_trainer_qs.delete()
-            #pet_trainer_qs.update(is_deleted=True)
+    def delete(self,request,pettrainer_id):
+        """Delete pet trainer"""
+        # find the pet trainer and is not deleted
+        pettrainer_qs = PetTrainer.objects.filter(id=pettrainer_id, is_deleted=False)
+        if pettrainer_qs.exists():
+            pettrainer_qs.delete()
+            #pettrainer_qs.update(is_deleted=True)
             return Response({"msg" : "Pet trainer delete successful!!!"}, status=200)
         return Response({"msg" : "Pet trainer not exist"}, status=400)

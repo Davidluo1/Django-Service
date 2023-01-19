@@ -26,6 +26,8 @@ class UpdateChef(APIView):
         
     @transaction.atomic
     def delete(self,request,chef_id):
+        """Delete chef"""
+        # find the chef and is not deleted
         chef_qs = Chef.objects.filter(id=chef_id, is_deleted=False)
         if chef_qs.exists():
             chef_qs.delete()

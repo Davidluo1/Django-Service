@@ -16,5 +16,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return instance
     
     class Meta:
-        
         model = User

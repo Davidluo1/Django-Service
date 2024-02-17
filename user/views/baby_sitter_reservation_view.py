@@ -16,6 +16,7 @@ class BabySitterReservation(APIView):
         babysitter_qs = BabySitter.objects.filter(id=babysitter_id)
         reservation_request = request.GET.get("reserve", None)
         babysitter_instance = babysitter_qs[0]
+        
         # make reservation if babysitter is available in morning
         if reservation_request in ("morning",'Morning') and babysitter_instance.morning_shift == False:
             babysitter_qs.update(morning_shift=True)

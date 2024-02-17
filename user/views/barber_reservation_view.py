@@ -41,6 +41,7 @@ class BarberReservation(APIView):
         """Delete baber reservation"""
         user = request.user
         baber_qs = Barber.objects.filter(id=baber_id, user=user)
+        
         if baber_qs.exists():
             baber_qs.delete()
             #baber_qs.update(is_deleted=True)

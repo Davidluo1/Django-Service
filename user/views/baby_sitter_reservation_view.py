@@ -41,6 +41,7 @@ class BabySitterReservation(APIView):
         """Delete baby sitter reservation"""
         user = request.user
         babysitter_qs = BabySitter.objects.filter(id=babysitter_id, user=user)
+        
         if babysitter_qs.exists():
             babysitter_qs.delete()
             #babysitter_qs.update(is_deleted=True)

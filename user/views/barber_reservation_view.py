@@ -16,6 +16,7 @@ class BarberReservation(APIView):
         barber_qs = Barber.objects.filter(id=barber_id)
         reservation_request = request.GET.get("reserve", None)
         barber_instance = barber_qs[0]
+        
         # make reservation if barber is available in morning
         if reservation_request in ("morning",'Morning') and barber_instance.morning_shift == False:
             barber_qs.update(morning_shift=True)

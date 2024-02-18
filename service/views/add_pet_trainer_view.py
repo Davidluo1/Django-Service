@@ -25,7 +25,6 @@ class AddPetTrainer(APIView):
         return Response({"msg" : "Pet trainer added successful!!!"}, status=200)
 
     
-    
     def get(self,request):
         """Get all pet trainers"""
         # get all pet trainer

@@ -24,7 +24,6 @@ class UpdatePetTrainer(APIView):
         return Response({"msg" : "Pet trainer not exist"}, status=400)
 
     
-    
     @transaction.atomic
     def delete(self,request,pettrainer_id):
         """Delete pet trainer"""

@@ -6,6 +6,7 @@ from service.serializer import BarberRequest
 from service.models import Barber
 from rest_framework.permissions import IsAuthenticated
 
+
 class AddBarberView(APIView):
     """Add barber"""
     
@@ -23,7 +24,6 @@ class AddBarberView(APIView):
         barber_qs.create(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Barber added successful!!!"}, status=200)
-        
         
         
     def get(self,request):

@@ -6,6 +6,7 @@ from service.serializer import PetTrainerRequest
 from service.models import PetTrainer
 from rest_framework.permissions import IsAuthenticated
 
+
 class AddPetTrainer(APIView):
     """Add pet trainer"""
     
@@ -30,6 +31,7 @@ class AddPetTrainer(APIView):
         # get all pet trainer
         pettrainer_qs = PetTrainer.objects.all()
         resp = []
+        
         if pettrainer_qs.exists():
             # store all info for every pet trainer
             for item in pettrainer_qs:

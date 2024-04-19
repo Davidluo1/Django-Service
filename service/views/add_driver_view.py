@@ -31,6 +31,7 @@ class AddDriverView(APIView):
         # get all drivers
         driver_qs = Driver.objects.all()
         resp = []
+        
         if driver_qs.exists():
             # store all info for each driver
             for item in driver_qs:

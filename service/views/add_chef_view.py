@@ -6,6 +6,7 @@ from service.serializer import ChefRequest
 from service.models import Chef
 from rest_framework.permissions import IsAuthenticated
 
+
 class AddChefView(APIView):
     """Add chef"""
     
@@ -24,7 +25,6 @@ class AddChefView(APIView):
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Chef added successful!!!"}, status=200)
 
-        
         
     def get(self,request):
         """Get all chefs"""

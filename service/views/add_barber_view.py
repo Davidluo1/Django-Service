@@ -31,6 +31,7 @@ class AddBarberView(APIView):
         # get all barbers
         barber_qs = Barber.objects.all()
         resp = []
+        
         if barber_qs.exists():
             # store all info for each barber
             for item in barber_qs:

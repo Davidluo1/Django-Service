@@ -6,6 +6,7 @@ from service.serializer import DriverRequest
 from service.models import Driver
 from rest_framework.permissions import IsAuthenticated
 
+
 class AddDriverView(APIView):
     """Add driver"""
     
@@ -23,7 +24,6 @@ class AddDriverView(APIView):
         driver_qs.create(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Driver added successful!!!"}, status=200)
-        
         
         
     def get(self,request):

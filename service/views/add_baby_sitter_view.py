@@ -6,6 +6,7 @@ from service.serializer import BabySitterRequest
 from service.models import BabySitter
 from rest_framework.permissions import IsAuthenticated
 
+
 class AddBabySitterView(APIView):
     """Add baby sitter"""
     
@@ -23,7 +24,6 @@ class AddBabySitterView(APIView):
         babysitter_qs.create(name=req_data['name'], 
                                                    longitude=req_data['longitude'], latitude=req_data['latitude'])
         return Response({"msg" : "Baby sitter added successful!!!"}, status=200)
-        
         
         
     def get(self,request):

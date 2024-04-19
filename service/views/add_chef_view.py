@@ -31,6 +31,7 @@ class AddChefView(APIView):
         # get all chefs
         chef_qs = Chef.objects.all()
         resp = []
+        
         if chef_qs.exists():
             # store all info for each chef
             for item in chef_qs:

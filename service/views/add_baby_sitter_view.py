@@ -31,6 +31,7 @@ class AddBabySitterView(APIView):
         # get all baby sitter
         babysitter_qs = BabySitter.objects.all()
         resp = []
+        
         if babysitter_qs.exists():
             # store all info for each baby sitter
             for item in babysitter_qs:

@@ -38,7 +38,7 @@ class BabySitterReservation(APIView):
 
     @transaction.atomic
     def delete(self,request,babysitter_id):
-        """Delete baby sitter reservation"""
+        """Delete babysitter reservation"""
         user = request.user
         babysitter_qs = BabySitter.objects.filter(id=babysitter_id, user=user)
         

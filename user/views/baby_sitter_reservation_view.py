@@ -25,7 +25,7 @@ class BabySitterReservation(APIView):
         elif babysitter_instance.morning_shift == True:
             return Response({"msg":"Baby sitter is not available this morning"}, status=400)
             
-        # Make a reservation if babysitter is available in the afternoon
+        # Make a reservation if a babysitter is available in the afternoon
         if reservation_request in ("afternoon", "Afternoon") and babysitter_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Baby sitter", shift=reservation_request.lower())
             babysitter_qs.update(afternoon_shift=True)

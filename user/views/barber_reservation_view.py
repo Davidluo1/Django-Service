@@ -25,7 +25,7 @@ class BarberReservation(APIView):
         elif barber_instance.morning_shift == True:
             return Response({"msg":"Barber is not available this morning"}, status=400)
             
-        # make reservation if barber is available in afternoon
+        # Make a reservation if barber is available in afternoon
         if reservation_request in ("afternoon","Afternoon") and barber_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Barber", shift=reservation_request.lower())
             barber_qs.update(afternoon_shift=True)

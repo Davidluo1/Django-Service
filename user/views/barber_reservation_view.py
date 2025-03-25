@@ -38,7 +38,7 @@ class BarberReservation(APIView):
 
     @transaction.atomic
     def delete(self,request,baber_id):
-        """Delete baber reservation"""
+        """Delete a barber reservation"""
         user = request.user
         baber_qs = Barber.objects.filter(id=baber_id, user=user)
         

@@ -23,7 +23,7 @@ class UserSignUpView(APIView):
             return Response({"msg" : "Phone already being signed up to other user account"}, status = 400)
         # create an user table element with password encrypted
         user_instance = UserSerializer.create(req_data)
-        # create an random otp value for the user
+        # Create an random otp value for the user
         # OtpUser.objects.create(otp_value = random.randint(100000, 999999), user= user_instance)
         return Response({"msg" : "Sign up successful!!!"})
         

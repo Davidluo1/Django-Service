@@ -16,7 +16,7 @@ class UserSignUpView(APIView):
         _ = request_data.is_valid(raise_exception=True)
         req_data = request_data.validated_data
         
-        # resolve duplicate email/phone number by returning an error response
+        # Resolve duplicate email/phone number by returning an error response
         if User.objects.filter(email = req_data["email"]).exists():
             return Response({"msg" : "Email already exists"}, status = 400)
         if User.objects.filter(contact_number = req_data["contact_number"]).exists():

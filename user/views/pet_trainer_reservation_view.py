@@ -16,7 +16,7 @@ class PetTrainerReservation(APIView):
         pettrainer_qs = PetTrainer.objects.filter(id=pettrainer_id)
         reservation_request = request.GET.get("reserve", None)
         pettrainer_instance = pettrainer_qs[0]
-        # make reservation if pettrainer is available in morning
+        # Make reservation if pettrainer is available in the morning
         if reservation_request in ("morning",'Morning') and pettrainer_instance.morning_shift == False:
             pettrainer_qs.update(morning_shift=True)
             Reservation.objects.create(user=user, service_name="Pet trainer", shift=reservation_request.lower())

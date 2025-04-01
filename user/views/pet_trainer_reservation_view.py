@@ -23,7 +23,7 @@ class PetTrainerReservation(APIView):
             return Response({"msg":"Reservation successful!!!"}, status=200)
         elif pettrainer_instance.morning_shift == True:
             return Response({"msg":"Pet trainer is not available this morning"}, status=400)
-        # Make reservation if pettrainer is available in the afternoon
+        # Make a reservation if pettrainer is available in the afternoon
         if reservation_request in ("afternoon","Afternoon") and pettrainer_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Pet trainer", shift=reservation_request.lower())
             pettrainer_qs.update(afternoon_shift=True)
@@ -40,7 +40,7 @@ class PetTrainerReservation(APIView):
         pettrainer_qs = PetTrainer.objects.filter(id=pettrainer_id, user=user)
         if pettrainer_qs.exists():
             pettrainer_qs.delete()
-            #pettrainer_qs.update(is_deleted=True)
+            # pettrainer_qs.update(is_deleted=True)
             return Response({"msg":"Reservation removed"}, status=200)
         return Response({"msg":"Access denied (reservation might not exist)."}, status=400)
     

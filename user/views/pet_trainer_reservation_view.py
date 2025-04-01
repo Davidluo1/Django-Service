@@ -23,7 +23,7 @@ class PetTrainerReservation(APIView):
             return Response({"msg":"Reservation successful!!!"}, status=200)
         elif pettrainer_instance.morning_shift == True:
             return Response({"msg":"Pet trainer is not available this morning"}, status=400)
-        # make reservation if pettrainer is available in afternoon
+        # Make reservation if pettrainer is available in the afternoon
         if reservation_request in ("afternoon","Afternoon") and pettrainer_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Pet trainer", shift=reservation_request.lower())
             pettrainer_qs.update(afternoon_shift=True)

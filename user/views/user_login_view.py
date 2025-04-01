@@ -22,9 +22,9 @@ class UserLoginView(APIView):
         user_qs = User.objects.filter(email = email)
         if user_qs.exists():
             user_instance = user_qs[0]
-            # Bool check is the account activated
+            # Bool check if the account is activated
             if user_instance.otp_verify:
-                # bool password check
+                # Bool password check
                 password_match = user_instance.check_password(password)
                 if password_match:
                     # create a token key for the user once logged in

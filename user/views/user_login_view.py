@@ -22,7 +22,7 @@ class UserLoginView(APIView):
         user_qs = User.objects.filter(email = email)
         if user_qs.exists():
             user_instance = user_qs[0]
-            # bool check is the account activated
+            # Bool check is the account activated
             if user_instance.otp_verify:
                 # bool password check
                 password_match = user_instance.check_password(password)

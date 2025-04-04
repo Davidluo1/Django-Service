@@ -16,7 +16,7 @@ class ChefReservation(APIView):
         chef_qs = Chef.objects.filter(id=chef_id)
         reservation_request = request.GET.get("reserve", None)
         chef_instance = chef_qs[0]
-        # make reservation if chef is available in morning
+        # Make a reservation if chef is available in morning
         if reservation_request in ("morning",'Morning') and chef_instance.morning_shift == False:
             chef_qs.update(morning_shift=True)
             Reservation.objects.create(user=user, service_name="Chef", shift=reservation_request.lower())

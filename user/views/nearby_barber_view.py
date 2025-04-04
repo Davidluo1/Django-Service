@@ -20,7 +20,7 @@ class NearbyBarber(APIView):
         barber_qs = Barber.objects.all()
         # distance_list=[]
         if barber_qs:
-            # approximate radius of earth in km
+            # Approximate radius of earth in km
             # R = 6373.0
             # userlat = radians(user_latitude)
             # userlon = radians(user_longitude)

@@ -5,7 +5,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     """Table password encryption seralizer"""
     @classmethod
     def create(self, validated_data):
-        # pop off the password in database
+        # Pop off the password in database
         password = validated_data.pop("password")
         # Create a user class to store the rest data
         instance = self.Meta.model(**validated_data)

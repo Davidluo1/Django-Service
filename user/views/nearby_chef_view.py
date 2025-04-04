@@ -15,7 +15,7 @@ class NearbyChef(APIView):
         user_qs = User.objects.filter(id=user_id)[0]
         user_latitude = user_qs.latitude
         user_longitude = user_qs.longitude
-        # get all chefs from database
+        # Get all chefs from database
         chef_qs = Chef.objects.all()
         if chef_qs:
             chef_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, chef_qs)     

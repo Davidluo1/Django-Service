@@ -23,7 +23,7 @@ class DriverReservation(APIView):
             return Response({"msg":"Reservation successful!!!"}, status=200)
         elif driver_instance.morning_shift == True:
             return Response({"msg":"Driver is not available this morning"}, status=400)
-        # make reservation if driver is available in afternoon
+        # make reservation if driver is available in the afternoon
         if reservation_request in ("afternoon","Afternoon") and driver_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Driver", shift=reservation_request.lower())
             driver_qs.update(afternoon_shift=True)

@@ -13,7 +13,7 @@ class UserList(APIView):
         resp=[]
         total=0
         if user_list:
-            # count total number of users and store them into a list
+            # Count the total number of users and store them into a list
             for data in user_list:
                 total+=1
                 resp.append({"id":data.id, "name":data.name, "contact":data.contact_number,

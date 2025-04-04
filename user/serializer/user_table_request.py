@@ -11,7 +11,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance = self.Meta.model(**validated_data)
         # encrypt password
         instance.set_password(password)
-        #save data
+        # Save data
         instance.save()
         return instance
     

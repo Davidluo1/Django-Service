@@ -16,7 +16,7 @@ class NearbyBarber(APIView):
         user_qs = User.objects.filter(id=user_id)[0]
         user_latitude = user_qs.latitude
         user_longitude = user_qs.longitude
-        # get all barbers from database
+        # Get all barbers from database
         barber_qs = Barber.objects.all()
         #distance_list=[]
         if barber_qs:

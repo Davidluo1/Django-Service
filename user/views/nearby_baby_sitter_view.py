@@ -18,7 +18,7 @@ class NearbyBabysitter(APIView):
         user_longitude = user_qs.longitude
         # Get all baby sitters from database
         babysitter_qs = BabySitter.objects.all()
-        #distance_list=[]
+        # distance_list=[]
         if babysitter_qs:
             # approximate radius of earth in km
             # R = 6373.0

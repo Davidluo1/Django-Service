@@ -19,7 +19,7 @@ class NearbyChef(APIView):
         chef_qs = Chef.objects.all()
         if chef_qs:
             chef_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, chef_qs)     
-            # distance unit check
+            # Distance unit check
             if display == "meter":
                 return Response({"Service" : "Chef", "Measure": "meter", "chef" : chef_list}, status=200)
             return Response({"Measure": "km", "msg" : chef_list}, status=200)

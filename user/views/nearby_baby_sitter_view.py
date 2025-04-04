@@ -16,7 +16,7 @@ class NearbyBabysitter(APIView):
         user_qs = User.objects.filter(id=user_id)[0]
         user_latitude = user_qs.latitude
         user_longitude = user_qs.longitude
-        # get all baby sitters from database
+        # Get all baby sitters from database
         babysitter_qs = BabySitter.objects.all()
         #distance_list=[]
         if babysitter_qs:

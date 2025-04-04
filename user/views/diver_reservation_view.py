@@ -16,7 +16,7 @@ class DriverReservation(APIView):
         driver_qs = Driver.objects.filter(id=driver_id)
         reservation_request = request.GET.get("reserve", None)
         driver_instance = driver_qs[0]
-        # Make a reservation if driver is available in morning
+        # Make a reservation if driver is available in the morning
         if reservation_request in ("morning",'Morning') and driver_instance.morning_shift == False:
             driver_qs.update(morning_shift=True)
             Reservation.objects.create(user=user, service_name="Driver", shift=reservation_request.lower())

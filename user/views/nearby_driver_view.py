@@ -20,7 +20,7 @@ class NearbyDriver(APIView):
         driver_qs = Driver.objects.all()
         if driver_qs:
             driver_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, driver_qs)   
-            # distance unit check
+            # Distance unit check
             if display == "meter":
                 return Response({"Service" : "Driver", "Measure": "meter", "driver" : driver_list}, status=200)
             return Response({"Measure": "km", "msg" : driver_list}, status=200)

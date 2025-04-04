@@ -23,7 +23,7 @@ class ChefReservation(APIView):
             return Response({"msg":"Reservation successful!!!"}, status=200)
         elif chef_instance.morning_shift == True:
             return Response({"msg":"Chef is not available this morning"}, status=400)
-        # make reservation if chef is available in the afternoon
+        # Make a reservation if chef is available in the afternoon
         if reservation_request in ("afternoon","Afternoon") and chef_instance.afternoon_shift == False:
             Reservation.objects.create(user=user, service_name="Chef", shift=reservation_request.lower())
             chef_qs.update(afternoon_shift=True)

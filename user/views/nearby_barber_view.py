@@ -44,7 +44,7 @@ class NearbyBarber(APIView):
             # # sort distance acending order
             # barber_list = sorted(distance_list, key=lambda d: d['distance'])
             barber_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, barber_qs)    
-            # distance unit check
+            # Distance unit check
             if display == "meter":
                 return Response({"Service" : "Barber", "Measure": "meter", "Barber" : barber_list}, status=200)
             return Response({"Measure": "km", "msg" : barber_list}, status=200)

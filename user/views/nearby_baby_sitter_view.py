@@ -20,7 +20,7 @@ class NearbyBabysitter(APIView):
         babysitter_qs = BabySitter.objects.all()
         # distance_list=[]
         if babysitter_qs:
-            # approximate radius of earth in km
+            # Approximate radius of earth in km
             # R = 6373.0
             # userlat = radians(user_latitude)
             # userlon = radians(user_longitude)
@@ -44,7 +44,7 @@ class NearbyBabysitter(APIView):
             # # sort distance acending order
             # babysitter_list = sorted(distance_list, key=lambda d: d['distance'])
             babysitter_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, babysitter_qs)
-            # distance unit check
+            # Distance unit check
             if display == "meter":
                 return Response({"Service" : "Baby Sitter", "Measure": "meter", "babysitter" : babysitter_list}, status=200)
             return Response({"Measure": "km", "msg" : babysitter_list}, status=200)

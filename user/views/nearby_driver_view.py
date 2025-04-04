@@ -16,7 +16,7 @@ class NearbyDriver(APIView):
         user_qs = User.objects.filter(id=user_id)[0]
         user_latitude = user_qs.latitude
         user_longitude = user_qs.longitude
-        # get all drivers from database
+        # Get all drivers from database
         driver_qs = Driver.objects.all()
         if driver_qs:
             driver_list, display = ServiceDistanceListHelper(user_latitude,user_longitude, driver_qs)   
